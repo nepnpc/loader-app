@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         // ⚠ Change this to your deployed backend URL after deployment
-        const val DEFAULT_BASE_URL = "https://your-backend.railway.app"
+        const val DEFAULT_BASE_URL = "https://loader-app-production.up.railway.app"
     }
 
     // ── Download completion receiver ──────────────────────────────────────────
