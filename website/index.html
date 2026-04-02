@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loader — Video Downloader</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:      #0a0a0a;
+      --surface: #161616;
+      --card:    #1c1c1c;
+      --accent:  #00c8ff;
+      --text:    #ffffff;
+      --muted:   #888888;
+      --dim:     #444444;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .logo span { color: var(--accent); }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 40px;
+      line-height: 1.5;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    .feature {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .feature .icon {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .feature .label {
+      font-size: 13px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .feature .desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #000;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 16px 36px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .dl-btn:hover { opacity: 0.88; }
+
+    .dl-btn svg { flex-shrink: 0; }
+
+    .note {
+      font-size: 12px;
+      color: var(--dim);
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    .note a { color: var(--muted); }
+
+    .steps {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px;
+      margin-top: 28px;
+      text-align: left;
+    }
+
+    .steps h3 {
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .step:last-child { margin-bottom: 0; }
+
+    .step-num {
+      background: var(--surface);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-text {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      padding-top: 3px;
+    }
+
+    .step-text strong { color: var(--text); }
+
+    footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: var(--dim);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="logo">Load<span>er</span></div>
+    <p class="tagline">
+      Download video &amp; audio from YouTube and anywhere on the web.<br>
+      No ads. No fluff. Just downloads.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <div class="icon">⚡</div>
+        <div class="label">Fast</div>
+        <div class="desc">Direct CDN proxy, no re-encoding</div>
+      </div>
+      <div class="feature">
+        <div class="icon">🎯</div>
+        <div class="label">Quality choice</div>
+        <div class="desc">4K · 1080p · 720p · audio</div>
+      </div>
+      <div class="feature">
+        <div class="icon">📦</div>
+        <div class="label">Lightweight</div>
+        <div class="desc">&lt; 3 MB APK, zero trackers</div>
+      </div>
+      <div class="feature">
+        <div class="icon">🔗</div>
+        <div class="label">1000+ sites</div>
+        <div class="desc">Powered by yt-dlp</div>
+      </div>
+    </div>
+
+    <!-- ⬇ Replace href with your actual GitHub Releases APK link -->
+    <a class="dl-btn" href="https://github.com/YOUR_USERNAME/loader-app/releases/latest/download/loader.apk" download>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Download APK (Android)
+    </a>
+
+    <div class="steps">
+      <h3>Install in 3 steps</h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">Tap <strong>Download APK</strong> above and wait for it to complete.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">Open the downloaded file. Android will ask to <strong>allow install from unknown sources</strong> — tap Allow.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">Open Loader, tap the <strong>server icon</strong> (top-right), and enter your backend URL once.</div>
+      </div>
+    </div>
+
+    <p class="note">
+      Requires Android 8.0+. Open-source. Self-hosted backend keeps your downloads private.<br>
+      <a href="https://github.com/YOUR_USERNAME/loader-app">View source on GitHub →</a>
+    </p>
+
+  </div>
+
+  <footer>Built with yt-dlp · FastAPI · Kotlin</footer>
+</body>
+</html>
